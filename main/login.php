@@ -1,17 +1,54 @@
 <?php
 	session_start();
-	include('config/config.php');
+	include('../admin/config/config.php');
+	function add($data2, $data, $key){
+		$item = array(
+			'name' => $data2['product_name'],
+			'code' => $data2['product_code'],
+			'image' => $data2['product_img'] ,
+			'cost' => $data2['product_price'],
+			'qty'  => $data['product_amount'],
+			'total' => $data2['product_price'] * $data['product_amount']
+		);
+		$_SESSION['cart'][$key] = $item;
+		
+	}
 	if(isset($_POST['Login'])){
 		$username = $_POST['Username'];
-		$password = $_POST['Password'];
-		$sql = "SELECT * FROM tbl_admin WHERE username = '".$username."' AND password = '".$password."'  LIMIT 1";
-		$row = mysqli_query($mysqli, $sql);
-		$count = mysqli_num_rows($row);
-		if($count > 0){
-			$_SESSION['Login'] = $username;
-			header("Location:index.php");
-		}else{
+		$password = md5($_POST['Password']);
+		$sql1 = "SELECT * FROM tbl_register WHERE register_phonenumber = '".$username."' AND register_password = '".$password."'  LIMIT 1";
+		$sql2 = "SELECT * FROM tbl_register WHERE register_email = '".$username."' AND register_password = '".$password."'  LIMIT 1";
+		$row1 = mysqli_query($mysqli, $sql1);
+		$row2 = mysqli_query($mysqli, $sql2);
+		$count1 = mysqli_num_rows($row1);
+		$count2 = mysqli_num_rows($row2);
 
+		if($count1 > 0){
+			$row_data = mysqli_fetch_array($row1);
+			
+			$_SESSION['Register'] = $row_data['register_name'];
+			$_SESSION['id_user'] = $row_data['register_id'];
+			
+			header("Location:http://localhost/DACS2/index.php");
+		}elseif($count2 > 0){
+			$row_data = mysqli_fetch_array($row2);
+			$_SESSION['Register'] = $row_data['register_name'];
+			$_SESSION['id_user'] = $row_data['register_id'];
+			
+			$sql_query_iduser = mysqli_query($mysqli, "SELECT * FROM tbl_session_cart WHERE session_user = '".$_SESSION['id_user']."' ");
+			$item;
+			while($data = mysqli_fetch_array($sql_query_iduser)){
+				$sql_add_item = mysqli_query($mysqli, "SELECT * FROM tbl_product WHERE product_code = '".$data['session_cart']."' ");
+				while($data2 = mysqli_fetch_array($sql_add_item)){
+					add($data2, $data, $data['session_cart']);
+				}
+			}
+		
+
+			header("Location:http://localhost/DACS2/index.php");
+		}
+		else{
+			
 		}
 		
 	}
@@ -50,8 +87,8 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<div class="main-w3layouts-agileinfo">
 	           <!--form-stars-here-->
 						<div class="wthree-form">
-						
-							<form action="" autocomplete="off" method="post">
+						<!-- autocomplete="off" -->
+							<form action=""  method="post">
 								<div class="form-sub-w3">
 									<input type="text" name="Username" placeholder="Username " required="" />
 								<div class="icon-w3">
@@ -64,10 +101,11 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 									<i class="fa fa-unlock-alt" aria-hidden="true"></i>
 								</div>
 								</div>
-								<label class="anim">
-								<input type="checkbox" class="checkbox">
-									<span>Remember Me</span> 
-									<a href="#">Forgot Password</a>
+								<label class="anim" style="display: flex; justify-content: space-between;">
+								<!-- <input type="checkbox" class="checkbox">
+									<span>Remember Me</span>  -->
+                                    <a href="register.php">Đăng kí</a>
+									<a href="#">Quên mật khẩu</a>
 								</label> 
 								<div class="clear"></div>
 								<div class="submit-agileits">

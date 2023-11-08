@@ -1,4 +1,11 @@
 <?php
+    session_start();
+?>
+<?php
+include "admin/config/config.php";
+?>
+
+<?php
  include "pages/header.php";
 ?>
         

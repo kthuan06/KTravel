@@ -52,44 +52,44 @@
         <p class="text-4xl font-bold text-blue-700 ml-5 my-5">Điểm đến yêu thích</p>
         <div class="grid grid-cols-4">
             <div  class="mx-12">
-                <a href=""><img style="border-radius: 10px;" src="https://media.travel.com.vn/destination/dg_200827_HA%20LONG_322052888.jpg" alt=""></a>
+                <a href="index.php?main=location&id=32"><img style="border-radius: 10px;" src="https://media.travel.com.vn/destination/dg_200827_HA%20LONG_322052888.jpg" alt=""></a>
                 <p class="text-2xl font-bold">Hạ Long</p>
                 <p>Hơn 100.000 lượt khách</p>
             </div>
             <div  class="mx-12">
-                <a href=""><img style="border-radius: 10px;" src="https://media.travel.com.vn/destination/dg_230628_cau-rong-ve-dem.webp" alt=""></a>
+                <a href="index.php?main=location&id=35"><img style="border-radius: 10px;" src="https://media.travel.com.vn/destination/dg_230628_cau-rong-ve-dem.webp" alt=""></a>
                 <p class="text-2xl font-bold">Đà Nẵng</p>
                 <p>Hơn 100.000 lượt khách</p>
             </div>
             <div  class="mx-12">
-                <a href=""><img style="border-radius: 10px;" src="https://media.travel.com.vn/destination/dg_230628_da-lat.webp" alt=""></a>
+                <a href="index.php?main=location&id=38"><img style="border-radius: 10px;" src="https://media.travel.com.vn/destination/dg_230628_da-lat.webp" alt=""></a>
                 <p class="text-2xl font-bold">Đà Lạt</p>
                 <p>Hơn 100.000 lượt khách</p>
             </div>
             <div  class="mx-12">
-                <a href=""><img style="border-radius: 10px;" src="https://media.travel.com.vn/destination/dg_230628_phu-quoc.webp" alt=""></a>
+                <a href="index.php?main=location&id=40"><img style="border-radius: 10px;" src="https://media.travel.com.vn/destination/dg_230628_phu-quoc.webp" alt=""></a>
                 <p class="text-2xl font-bold">Phú Quốc</p>
                 <p>Hơn 100.000 lượt khách</p>
             </div>
         
         
             <div  class="mx-12">
-                <a href=""><img style="border-radius: 10px;" src="https://media.travel.com.vn/destination/dg_230628_chau-a.webp" alt=""></a>
+                <a href="index.php?main=location&id=49"><img style="border-radius: 10px;" src="https://media.travel.com.vn/destination/dg_230628_chau-a.webp" alt=""></a>
                 <p class="text-2xl font-bold">Nhật Bản</p>
                 <p>Hơn 100.000 lượt khách</p>
             </div>
             <div  class="mx-12">
-                <a href=""><img style="border-radius: 10px;" src="https://media.travel.com.vn/destination/dg_230628_chau-my.webp" alt=""></a>
+                <a href="index.php?main=location&id=46"><img style="border-radius: 10px;" src="https://media.travel.com.vn/destination/dg_230628_chau-my.webp" alt=""></a>
                 <p class="text-2xl font-bold">Argentina</p>
                 <p>Hơn 100.000 lượt khách</p>
             </div>
             <div  class="mx-12">
-                <a href=""><img style="border-radius: 10px;" src="https://media.travel.com.vn/destination/dg_230628_chau-au.webp" alt=""></a>
+                <a href="index.php?main=location&id=44"><img style="border-radius: 10px;" src="https://media.travel.com.vn/destination/dg_230628_chau-au.webp" alt=""></a>
                 <p class="text-2xl font-bold">Pháp</p>
                 <p>Hơn 100.000 lượt khách</p>
             </div>
             <div  class="mx-12">
-                <a href=""><img style="border-radius: 10px;" src="https://media.travel.com.vn/destination/dg_230628_chau-uc.webp" alt=""></a>
+                <a href="index.php?main=location&id=43"><img style="border-radius: 10px;" src="https://media.travel.com.vn/destination/dg_230628_chau-uc.webp" alt=""></a>
                 <p class="text-2xl font-bold">Úc</p>
                 <p>Hơn 100.000 lượt khách</p>
             </div>

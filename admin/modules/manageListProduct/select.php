@@ -1,7 +1,7 @@
 <?php
    
 
-    $sql_select = "SELECT * FROM tbl_cartegory ORDER BY	cartegory_order DESC";
+    $sql_select = "SELECT * FROM tbl_cartegory ORDER BY	cartegory_order ";
     $query_select = mysqli_query($mysqli, $sql_select);
 
 
@@ -35,8 +35,10 @@
 <table>
     <tr>
         <th>ID</th>
-        <th>Tên danh mục</th>
+        <th>Tên danh mục</th> 
+        <th>Loại danh mục</th>
         <th>Quản lý</th>
+
     </tr>
 <?php
     $i = 0;
@@ -46,6 +48,7 @@
     <tr>
         <td><?php echo $i;?></td>
         <td><?php echo $row['cartegory_name'];?></td>
+        <td><?php echo $row['cartegory_type'];?></td>
         <td>
             <a href="?action=listproduct&query=edit&id=<?php echo $row['cartegory_id'] ?>">Sửa</a> / <a href="modules/manageListProduct/processproduct.php?id=<?php echo $row['cartegory_id'] ?>">Xóa</a>
         </td>

@@ -1,0 +1,130 @@
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0px;
+}
+.header{
+    background-color: #009a82;
+    width: 100%;
+    margin: 0px auto;
+}
+.menu{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0%;
+}
+.menu > li{
+    padding: 8px;
+    flex : 1;
+    position: relative;
+    text-align: center;
+}
+.sub-menu{
+   
+    position: absolute;
+    display: none;
+    background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
+    width: 100%;
+    list-style-type: none;
+    top: 100%;
+    
+}
+.menu > li:hover .sub-menu{
+    display: block;
+}
+.menu > li:hover > a{
+    color: rgba(191, 219, 254, var(--tw-bg-opacity));
+}
+.sub-menu > li{
+    padding: 5px;
+}
+/* .menu{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+.menu > li{
+    border: 1px solid wheat;
+    flex : 1;
+    position: relative;
+    text-align: center;
+}
+.menu > li > a{
+    text-decoration: none;
+    color: azure;
+}
+
+.sub-menu{
+    position: absolute;
+    display: none;
+   background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
+    width: 100%;
+    list-style-type: none;
+    
+}
+.sub-menu > li{
+    border-bottom: 1px  solid;
+    
+    text-align: center;
+    position: relative;
+}
+.sub-menu > li > a{
+    text-decoration: none;
+    color: white;
+}
+.menu > li:hover .sub-menu{
+    display: block;
+}
+.sub-menu > li:hover > a{
+    color: rgb(20, 220, 217);
+}
+.sub-menu-second{
+    display: none;
+    top: 0;
+    left: 100%;
+    position: absolute; display: none;
+    background-color: #009a82;
+    width: 100%;
+    list-style-type: none;
+    
+}
+.sub-menu-second > li > a{
+    text-decoration: none;
+    color: white;
+}
+.sub-menu-second > li{
+    text-align: center;
+    border-bottom: 1px  solid;
+    position: relative;
+}
+.sub-menu-second > li:hover >a{
+    color: rgb(20, 220, 217);
+}
+.sub-menu > li:hover .sub-menu-second{
+    display: block;
+}
+.sub-menu-third{
+    display: none;
+    position: absolute;
+    left: 100%;
+    width: 100%;
+    top: 0;
+    background-color: #009a82;
+    list-style: none;
+}
+.sub-menu-third > li{
+    text-align: center;
+}
+.sub-menu-third > li > a{
+    text-decoration: none;
+    color: white;
+}
+.sub-menu-third > li:hover >a{
+    color: rgb(20, 220, 217);
+}
+.sub-menu > li >.sub-menu-second >li:hover .sub-menu-third{
+    display: block;
+}
+ */

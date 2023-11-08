@@ -4,7 +4,7 @@
 ?>
 
 
-<h1>Sửa danh mục sản phẩm</h1>
+<h1>Sửa danh mục</h1>
 
 <style>
     table, td, tr{
@@ -20,7 +20,7 @@
     }
     td{
         text-align: center;
-    }
+    } 
 </style>
 <form action="modules/manageListProduct/processproduct.php?id=<?php echo $_GET['id'];?>" method="post">
     <table>
@@ -36,6 +36,10 @@
         <tr>
             <td>Thứ tự sản phẩm</td>
             <td><input type="text" name="listorder" value=" <?php echo    $row['cartegory_order']?>"> </td>
+        </tr>
+        <tr>
+            <td>Loại sản phẩm</td>
+            <td><input type="text" name="listtype" value=" <?php echo    $row['cartegory_type']?>"> </td>
         </tr>
         <tr>
             <td colspan="2"><button type="submit" name="editlist">Sửa</button></td>

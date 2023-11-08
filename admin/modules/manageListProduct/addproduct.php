@@ -1,4 +1,4 @@
-<h1>Thêm danh mục sản phẩm</h1>
+<h1>Thêm danh mục</h1>
 
 <style>
     table, td, tr{
@@ -12,7 +12,7 @@
     table{
         width: 50%;
     }
-    td{
+    td{ 
         text-align: center;
     }
 </style>
@@ -21,6 +21,15 @@
         <tr>
             <td>Tên danh mục</td>
             <td><input type="text" name="list"></td>
+        </tr>
+        <tr>
+            <td>Loại sản phẩm</td>
+            <td>
+                <select name="listtype" id="">
+                    <option value="Trong nước">Trong nước</option>
+                    <option value="Ngoài nước">Ngoài nước</option>
+                </select>
+            </td>
         </tr>
         <tr>
             <td>Thứ tự sản phẩm</td>

@@ -12,8 +12,14 @@
             include("manageListProduct/select.php");
         }
         elseif($tam == 'listproduct' && $query == 'edit'){
-            
             include("manageListProduct/editproduct.php");
+        }
+        elseif($tam == 'product' && $query == 'add'){
+            include("manageProduct/addproduct.php");
+            include("manageProduct/select.php");
+        }
+        elseif($tam == 'product' && $query == 'edit'){
+            include("manageProduct/editproduct.php");
         }
         elseif($tam == 'hotel'){
 

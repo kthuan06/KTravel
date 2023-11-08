@@ -1,4 +1,36 @@
 
+<?php
+include "admin/config/config.php";
+?>
+<?php 
+                
+    $sql_select_in = "SELECT *from tbl_cartegory WHERE cartegory_type = 'Trong nước'";
+    $query_select_in = mysqli_query($mysqli, $sql_select_in);
+    
+                
+    $sql_select_out = "SELECT *from tbl_cartegory WHERE cartegory_type = 'Ngoài nước'";
+    $query_select_out = mysqli_query($mysqli, $sql_select_out);
+
+
+
+
+?>     
+
+<?php 
+    
+    $sql_pro_in = "SELECT *from tbl_product WHERE product_start = 'Trong nước'";
+    $query_pro_in = mysqli_query($mysqli, $sql_pro_in);
+    
+                
+    $sql_pro_out = "SELECT *from tbl_product WHERE product_start = 'Ngoài nước'";
+    $query_pro_out = mysqli_query($mysqli, $sql_pro_out);
+    
+
+            
+?>  
+<?php
+    $tmp_location ;
+?>
 
 <!----------Cartegory---------->
     <section class="cartegory mx-20 mt-10">
@@ -28,66 +60,69 @@
         <div class="flex mt-10">
             <div class="w-1/6 mx-auto">
                 <ul>
-                    <li class="text-2xl font-bold mb-10  locations"><a href="#">Trong nước</a>
+                    <li class="text-2xl font-bold mb-10  locations"><a href="index.php?main=location&id=in">Trong nước</a>
                         <ul class="text-sm font-medium mt-3 ml-5">
-                            <li><a href=""></a>Hà Nội</li>
-                            <li><a href=""></a>Hạ Long</li>
-                            <li><a href=""></a>Huế</li>
-                            <li><a href=""></a>Quảng Bình</li>
-                            <li><a href=""></a>Đà Nẵng</li>
-                            <li><a href=""></a>Quảng Nam</li>
-                            <li><a href=""></a>Nha Trang</li>
-                            <li><a href=""></a>Đà Lạt</li>
-                            <li><a href=""></a>Phan Thiết</li>
-                            <li><a href=""></a>Bà Rịa - Vũng Tàu</li>
-
+                            <?php
+                        while($row1 = mysqli_fetch_array($query_select_in)){
+                        ?>
+                            <li><a href="index.php?main=location&id=<?php echo $row1['cartegory_id'] ?>"><?php echo $row1['cartegory_name']?></a></li>
+                            <?php
+                            }?>
                         </ul>
                 </li>
-                    <li class="text-2xl font-bold locations"><a href="#">Ngoài nước</a>
+                    <li class="text-2xl font-bold locations"><a href="index.php?main=location&id=out">Ngoài nước</a>
                     <ul class="text-sm font-medium mt-3 ml-5">
-                        <li><a href=""></a>Trung Quốc</li>
-                        <li><a href=""></a>Thái Lan</li>
-                        <li><a href=""></a>Malaysia</li>
-                        <li><a href=""></a>Singapore</li>
-                        <li><a href=""></a>Hàn Quốc</li>
-                        <li><a href=""></a>Úc</li>
-                        <li><a href=""></a>Mỹ - Hoa Kỳ</li>
-                        <li><a href=""></a>Nhật Bản</li>
-                        <li><a href=""></a>Ấn Độ</li>
-                        <li><a href=""></a>Philippines</li>
+                    <?php
+                        while($row2 = mysqli_fetch_array($query_select_out)){
+                        ?>
+                            <li><a href="index.php?main=location&id=<?php echo $row2['cartegory_id'] ?>"><?php echo $row2['cartegory_name']?></a></li>
+                            <?php
+                            }?>
                     </ul>
                 </li>
                 </ul>
             </div>
             
             
-            <script>
-                const boloc = document.querySelector(".button_filter")
-                if(boloc){
-                    boloc.addEventListener("click", function(){
-                        document.querySelector(".filter").style.display = "block"
-                    })
-                }
-            </script>
+           
             <div class="w-5/6 mx-auto">
                 <div class="grid grid-cols-2">
+
                     <div>           
-                    <p class="text-xl font-bold">Hà nội</p>
+                    <p class="text-xl font-bold">
+                        <?php
+                            if($_GET['id'] == 'in'){
+                                echo "Trong nước";
+                            }elseif($_GET['id'] == 'out') {
+                                echo "Ngoài nước";
+                            }else {
+                                $sql_title = "SELECT *from tbl_cartegory WHERE cartegory_id = $_GET[id]";
+                                $query_title = mysqli_query($mysqli, $sql_title);
+
+                                while($title = mysqli_fetch_array($query_title)){
+                                    echo $title['cartegory_name'];
+                                    $tmp_location = $title['cartegory_name'];
+                                }
+                            }
+                        ?>
+                    </p>
                     </div>
-                    <div class="grid grid-cols-2">
-                        <div class="mx-1">
-                            <button class="border border-solid px-16 py-1 w-full rounded-md button_filter" style="cursor: pointer;"><span>---Bộ lọc---</span></button>
+                    <form class="grid grid-cols-2" action="index.php?main=find" method="POST">
+                        <div class="mx-1 flex">
+                            <input type="text" class="border border-solid rounded-md w-5/6 py-1" placeholder="Tim kiem..." name="keyword">
+                            <button type="sub" class="border border-solid py-1 w-1/6 rounded-md" name="find" value="find">Tim</button>
                         </div>
-                        <div class="mx-1" >
-                            <select name="" id="" class="border border-solid px-16 py-1 w-full rounded-md" style="cursor: pointer;"> 
+                        <!-- <div class="mx-1" >
+                            <select name="order" id="" class="border border-solid px-16 py-1 w-full rounded-md" style="cursor: pointer;"> 
                                 <option value="">Sắp xếp</option>
-                                <option value="Giá cao đến thấp"></option>
-                                <option value="Giá thấp đến cao"></option>
+                                <option value="high">Giá cao đến thấp</option>
+                                <option value="low">Giá thấp đến cao</option>
                             </select>
-                        </div>
-                    </div>
+                        </div> -->
+                        
+                    </form>
                 </div>
-                <style>
+                <!-- <style>
                     .filter_div > div{
                         border: 1px solid;
                         padding: 5px 0px;
@@ -129,16 +164,37 @@
                         <div>1-3 ngày</div>
                         </div>
                     </div>
-                </div>
-                <div class="content grid grid-cols-4  mt-5">
-                    <div class="mx-3 border border-solid rounded-xl">
-                        <img src="https://media.travel.com.vn/destination/tf_220715111546_272791.jpg" alt="">
+                </div> -->
+
+
+                <?php 
+                
+                $sql_pro_in = "SELECT *from tbl_product WHERE product_start = 'Trong nước'";
+                $query_pro_in = mysqli_query($mysqli, $sql_pro_in);
+                
+                            
+                $sql_pro_out = "SELECT *from tbl_product WHERE product_start = 'Ngoài nước'";
+                $query_pro_out = mysqli_query($mysqli, $sql_pro_out);
+            
+                ?>  
+
+
+
+                <div class="content grid grid-cols-3  mt-5">
+                    <?php
+                        if($_GET['id'] == 'in'){
+                            while($row3 = mysqli_fetch_array($query_pro_in)){
+                        
+                    ?>
+                    <div class="mx-3 border border-solid rounded-xl mt-5">
+                        <img src="<?php echo $row3['product_img'] ?>" alt="">
                         <div class="p-3">
-                            <h2 class="font-bold">Hà Nội - Vịnh Hạ Long - Chùa Bái Đính - Tràng An - Tuyệt Tịnh Cốc (Khách sạn 4 sao) | Kích cầu du lịch</h2><br>
-                            <p>Nơi khởi hành: <span class="font-bold">TP. Hồ Chí Minh</span></p>
-                            <p class="text-md font-bold text-red-500 my-5">7,990,000₫</p>
+                            <h2 class="font-bold"><?php echo $row3['product_name'] ?></h2><br>
+                            <p>Địa điểm: <span class="font-bold"><?php echo $row3['product_location'] ?></span></p>
+                            <p class="text-md font-bold text-red-500 my-5"><?php echo $row3['product_price'] ?>₫</p>
+                            <p class="text-sm font-bold my-5"> Mã: <?php echo $row3['product_code'] ?></p>
                             <div style="display:flex; justify-content: space-between;">
-                                <a href="payment1.php"><button class="bg-red-500 text-white py-1 px-2 rounded-md"><i class="fa-solid fa-cart-shopping"></i><span> Đặt ngay</span></button></a>
+                                <a href="index.php?main=payment"><button class="bg-red-500 text-white py-1 px-2 rounded-md"><i class="fa-solid fa-cart-shopping"></i><span> Đặt ngay</span></button></a>
                                 <style>
                                     .chitiet:hover {
                                         background-color: blue;
@@ -148,19 +204,26 @@
                                         color: #F0F0F0;
                                     }
                                 </style>
-                                <button class="chitiet py-1 px-2 rounded-md" style="border: 1px solid blue; color: blue;"><a href="index.php?main=product">Xem chi tiết</a></button>
+                                <button class="chitiet py-1 px-2 rounded-md" style="border: 1px solid blue; color: blue;"><a href="index.php?main=product&id=<?php echo $row3['product_code'] ?>">Xem chi tiết</a></button>
                             </div>
                         </div>
                     </div>
-                    <div class="mx-3 border border-solid rounded-xl">
-                        <img src="https://media.travel.com.vn/destination/tf_220715111546_272791.jpg" alt="">
+                    <?php
+                            }
+                        }elseif($_GET['id'] == 'out'){
+                            while($row4 = mysqli_fetch_array($query_pro_out)){
+                        
+                   ?>
+                   <div class="mx-3 border border-solid rounded-xl mt-5">
+                        <img src="<?php echo $row4['product_img'] ?>" alt="">
                         <div class="p-3">
-                            <h2 class="font-bold">Hà Nội - Vịnh Hạ Long - Chùa Bái Đính - Tràng An - Tuyệt Tịnh Cốc (Khách sạn 4 sao) | Kích cầu du lịch</h2><br>
-                            <p>Nơi khởi hành: <span class="font-bold">TP. Hồ Chí Minh</span></p>
-                            <p class="text-md font-bold text-red-500 my-5">7,990,000₫</p>
+                            <h2 class="font-bold"><?php echo $row4['product_name'] ?></h2><br>
+                            <p>Địa điểm: <span class="font-bold"><?php echo $row4['product_location'] ?></span></p>
+                            <p class="text-md font-bold text-red-500 my-5"><?php echo $row4['product_price'] ?>₫</p>
+                            <p class="text-sm font-bold my-5"> Mã: <?php echo $row4['product_code'] ?></p>
                             <div style="display:flex; justify-content: space-between;">
-                                <button class="bg-red-500 text-white py-1 px-2 rounded-md"><i class="fa-solid fa-cart-shopping"></i><span> Đặt ngay</span></button>
-                              <style>
+                                <a href="index.php?main=payment1"><button class="bg-red-500 text-white py-1 px-2 rounded-md"><i class="fa-solid fa-cart-shopping"></i><span> Đặt ngay</span></button></a>
+                                <style>
                                     .chitiet:hover {
                                         background-color: blue;
                                 
@@ -169,19 +232,33 @@
                                         color: #F0F0F0;
                                     }
                                 </style>
-                                <button class="chitiet py-1 px-2 rounded-md" style="border: 1px solid blue; color: blue;"><a href="product.php">Xem chi tiết</a></button>
+                                <button class="chitiet py-1 px-2 rounded-md" style="border: 1px solid blue; color: blue;"><a href="index.php?main=product&id=<?php echo $row4['product_code'] ?>">Xem chi tiết</a></button>
                             </div>
                         </div>
                     </div>
-                    <div class="mx-3 border border-solid rounded-xl">
-                        <img src="https://media.travel.com.vn/destination/tf_220715111546_272791.jpg" alt="">
+                    <?php
+                            }
+                        }else{
+                            $sql_pro = "SELECT *from tbl_product WHERE product_location = '".$tmp_location."'";
+                            $query_pro = mysqli_query($mysqli, $sql_pro);
+
+                            
+
+
+
+                            while($row5 = mysqli_fetch_array($query_pro)){
+                        
+                    ?>
+                        <div class="mx-3 border border-solid rounded-xl mt-5">
+                        <img src="<?php echo $row5['product_img'] ?>" alt="">
                         <div class="p-3">
-                            <h2 class="font-bold">Hà Nội - Vịnh Hạ Long - Chùa Bái Đính - Tràng An - Tuyệt Tịnh Cốc (Khách sạn 4 sao) | Kích cầu du lịch</h2><br>
-                            <p>Nơi khởi hành: <span class="font-bold">TP. Hồ Chí Minh</span></p>
-                            <p class="text-md font-bold text-red-500 my-5">7,990,000₫</p>
+                            <h2 class="font-bold"><?php echo $row5['product_name'] ?></h2><br>
+                            <p>Địa điểm: <span class="font-bold"><?php echo $row5['product_location'] ?></span></p>
+                            <p class="text-md font-bold text-red-500 my-5"><?php echo $row5['product_price'] ?>₫</p>
+                            <p class="text-sm font-bold my-5"> Mã: <?php echo $row5['product_code'] ?></p>
                             <div style="display:flex; justify-content: space-between;">
-                                <button class="bg-red-500 text-white py-1 px-2 rounded-md"><i class="fa-solid fa-cart-shopping"></i><span> Đặt ngay</span></button>
-                              <style>
+                                <a href="index.php?main=payment1"><button class="bg-red-500 text-white py-1 px-2 rounded-md"><i class="fa-solid fa-cart-shopping"></i><span> Đặt ngay</span></button></a>
+                                <style>
                                     .chitiet:hover {
                                         background-color: blue;
                                 
@@ -190,262 +267,15 @@
                                         color: #F0F0F0;
                                     }
                                 </style>
-                                <button class="chitiet py-1 px-2 rounded-md" style="border: 1px solid blue; color: blue;"><a href="product.php">Xem chi tiết</a></button>
+                                <button class="chitiet py-1 px-2 rounded-md" style="border: 1px solid blue; color: blue;"><a href="index.php?main=product&id=<?php echo $row5['product_code'] ?>">Xem chi tiết</a></button>
                             </div>
                         </div>
                     </div>
-                    <div class="mx-3 border border-solid rounded-xl">
-                        <img src="https://media.travel.com.vn/destination/tf_220715111546_272791.jpg" alt="">
-                        <div class="p-3">
-                            <h2 class="font-bold">Hà Nội - Vịnh Hạ Long - Chùa Bái Đính - Tràng An - Tuyệt Tịnh Cốc (Khách sạn 4 sao) | Kích cầu du lịch</h2><br>
-                            <p>Nơi khởi hành: <span class="font-bold">TP. Hồ Chí Minh</span></p>
-                            <p class="text-md font-bold text-red-500 my-5">7,990,000₫</p>
-                            <div style="display:flex; justify-content: space-between;">
-                                <button class="bg-red-500 text-white py-1 px-2 rounded-md"><i class="fa-solid fa-cart-shopping"></i><span> Đặt ngay</span></button>
-                              <style>
-                                    .chitiet:hover {
-                                        background-color: blue;
-                                
-                                    }
-                                    .chitiet:hover >a {
-                                        color: #F0F0F0;
-                                    }
-                                </style>
-                                <button class="chitiet py-1 px-2 rounded-md" style="border: 1px solid blue; color: blue;"><a href="product.php">Xem chi tiết</a></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mx-3 border border-solid rounded-xl my-3">
-                        <img src="https://media.travel.com.vn/destination/tf_220715111546_272791.jpg" alt="">
-                        <div class="p-3">
-                            <h2 class="font-bold">Hà Nội - Vịnh Hạ Long - Chùa Bái Đính - Tràng An - Tuyệt Tịnh Cốc (Khách sạn 4 sao) | Kích cầu du lịch</h2><br>
-                            <p>Nơi khởi hành: <span class="font-bold">TP. Hồ Chí Minh</span></p>
-                            <p class="text-md font-bold text-red-500 my-5">7,990,000₫</p>
-                            <div style="display:flex; justify-content: space-between;">
-                                <button class="bg-red-500 text-white py-1 px-2 rounded-md"><i class="fa-solid fa-cart-shopping"></i><span> Đặt ngay</span></button>
-                              <style>
-                                    .chitiet:hover {
-                                        background-color: blue;
-                                
-                                    }
-                                    .chitiet:hover >a {
-                                        color: #F0F0F0;
-                                    }
-                                </style>
-                                <button class="chitiet py-1 px-2 rounded-md" style="border: 1px solid blue; color: blue;"><a href="product.php">Xem chi tiết</a></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mx-3 border border-solid rounded-xl my-3">
-                        <img src="https://media.travel.com.vn/destination/tf_220715111546_272791.jpg" alt="">
-                        <div class="p-3">
-                            <h2 class="font-bold">Hà Nội - Vịnh Hạ Long - Chùa Bái Đính - Tràng An - Tuyệt Tịnh Cốc (Khách sạn 4 sao) | Kích cầu du lịch</h2><br>
-                            <p>Nơi khởi hành: <span class="font-bold">TP. Hồ Chí Minh</span></p>
-                            <p class="text-md font-bold text-red-500 my-5">7,990,000₫</p>
-                            <div style="display:flex; justify-content: space-between;">
-                                <button class="bg-red-500 text-white py-1 px-2 rounded-md"><i class="fa-solid fa-cart-shopping"></i><span> Đặt ngay</span></button>
-                              <style>
-                                    .chitiet:hover {
-                                        background-color: blue;
-                                
-                                    }
-                                    .chitiet:hover >a {
-                                        color: #F0F0F0;
-                                    }
-                                </style>
-                                <button class="chitiet py-1 px-2 rounded-md" style="border: 1px solid blue; color: blue;"><a href="product.php">Xem chi tiết</a></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mx-3 border border-solid rounded-xl my-3">
-                        <img src="https://media.travel.com.vn/destination/tf_220715111546_272791.jpg" alt="">
-                        <div class="p-3">
-                            <h2 class="font-bold">Hà Nội - Vịnh Hạ Long - Chùa Bái Đính - Tràng An - Tuyệt Tịnh Cốc (Khách sạn 4 sao) | Kích cầu du lịch</h2><br>
-                            <p>Nơi khởi hành: <span class="font-bold">TP. Hồ Chí Minh</span></p>
-                            <p class="text-md font-bold text-red-500 my-5">7,990,000₫</p>
-                            <div style="display:flex; justify-content: space-between;">
-                                <button class="bg-red-500 text-white py-1 px-2 rounded-md"><i class="fa-solid fa-cart-shopping"></i><span> Đặt ngay</span></button>
-                              <style>
-                                    .chitiet:hover {
-                                        background-color: blue;
-                                
-                                    }
-                                    .chitiet:hover >a {
-                                        color: #F0F0F0;
-                                    }
-                                </style>
-                                <button class="chitiet py-1 px-2 rounded-md" style="border: 1px solid blue; color: blue;"><a href="product.php">Xem chi tiết</a></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mx-3 border border-solid rounded-xl my-3">
-                        <img src="https://media.travel.com.vn/destination/tf_220715111546_272791.jpg" alt="">
-                        <div class="p-3">
-                            <h2 class="font-bold">Hà Nội - Vịnh Hạ Long - Chùa Bái Đính - Tràng An - Tuyệt Tịnh Cốc (Khách sạn 4 sao) | Kích cầu du lịch</h2><br>
-                            <p>Nơi khởi hành: <span class="font-bold">TP. Hồ Chí Minh</span></p>
-                            <p class="text-md font-bold text-red-500 my-5">7,990,000₫</p>
-                            <div style="display:flex; justify-content: space-between;">
-                                <button class="bg-red-500 text-white py-1 px-2 rounded-md"><i class="fa-solid fa-cart-shopping"></i><span> Đặt ngay</span></button>
-                              <style>
-                                    .chitiet:hover {
-                                        background-color: blue;
-                                
-                                    }
-                                    .chitiet:hover >a {
-                                        color: #F0F0F0;
-                                    }
-                                </style>
-                                <button class="chitiet py-1 px-2 rounded-md" style="border: 1px solid blue; color: blue;"><a href="product.php">Xem chi tiết</a></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mx-3 border border-solid rounded-xl my-3">
-                        <img src="https://media.travel.com.vn/destination/tf_220715111546_272791.jpg" alt="">
-                        <div class="p-3">
-                            <h2 class="font-bold">Hà Nội - Vịnh Hạ Long - Chùa Bái Đính - Tràng An - Tuyệt Tịnh Cốc (Khách sạn 4 sao) | Kích cầu du lịch</h2><br>
-                            <p>Nơi khởi hành: <span class="font-bold">TP. Hồ Chí Minh</span></p>
-                            <p class="text-md font-bold text-red-500 my-5">7,990,000₫</p>
-                            <div style="display:flex; justify-content: space-between;">
-                                <button class="bg-red-500 text-white py-1 px-2 rounded-md"><i class="fa-solid fa-cart-shopping"></i><span> Đặt ngay</span></button>
-                              <style>
-                                    .chitiet:hover {
-                                        background-color: blue;
-                                
-                                    }
-                                    .chitiet:hover >a {
-                                        color: #F0F0F0;
-                                    }
-                                </style>
-                                <button class="chitiet py-1 px-2 rounded-md" style="border: 1px solid blue; color: blue;"><a href="product.php">Xem chi tiết</a></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mx-3 border border-solid rounded-xl my-3">
-                        <img src="https://media.travel.com.vn/destination/tf_220715111546_272791.jpg" alt="">
-                        <div class="p-3">
-                            <h2 class="font-bold">Hà Nội - Vịnh Hạ Long - Chùa Bái Đính - Tràng An - Tuyệt Tịnh Cốc (Khách sạn 4 sao) | Kích cầu du lịch</h2><br>
-                            <p>Nơi khởi hành: <span class="font-bold">TP. Hồ Chí Minh</span></p>
-                            <p class="text-md font-bold text-red-500 my-5">7,990,000₫</p>
-                            <div style="display:flex; justify-content: space-between;">
-                                <button class="bg-red-500 text-white py-1 px-2 rounded-md"><i class="fa-solid fa-cart-shopping"></i><span> Đặt ngay</span></button>
-                              <style>
-                                    .chitiet:hover {
-                                        background-color: blue;
-                                
-                                    }
-                                    .chitiet:hover >a {
-                                        color: #F0F0F0;
-                                    }
-                                </style>
-                                <button class="chitiet py-1 px-2 rounded-md" style="border: 1px solid blue; color: blue;"><a href="product.php">Xem chi tiết</a></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mx-3 border border-solid rounded-xl my-3">
-                        <img src="https://media.travel.com.vn/destination/tf_220715111546_272791.jpg" alt="">
-                        <div class="p-3">
-                            <h2 class="font-bold">Hà Nội - Vịnh Hạ Long - Chùa Bái Đính - Tràng An - Tuyệt Tịnh Cốc (Khách sạn 4 sao) | Kích cầu du lịch</h2><br>
-                            <p>Nơi khởi hành: <span class="font-bold">TP. Hồ Chí Minh</span></p>
-                            <p class="text-md font-bold text-red-500 my-5">7,990,000₫</p>
-                            <div style="display:flex; justify-content: space-between;">
-                                <button class="bg-red-500 text-white py-1 px-2 rounded-md"><i class="fa-solid fa-cart-shopping"></i><span> Đặt ngay</span></button>
-                              <style>
-                                    .chitiet:hover {
-                                        background-color: blue;
-                                
-                                    }
-                                    .chitiet:hover >a {
-                                        color: #F0F0F0;
-                                    }
-                                </style>
-                                <button class="chitiet py-1 px-2 rounded-md" style="border: 1px solid blue; color: blue;"><a href="product.php">Xem chi tiết</a></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mx-3 border border-solid rounded-xl my-3">
-                        <img src="https://media.travel.com.vn/destination/tf_220715111546_272791.jpg" alt="">
-                        <div class="p-3">
-                            <h2 class="font-bold">Hà Nội - Vịnh Hạ Long - Chùa Bái Đính - Tràng An - Tuyệt Tịnh Cốc (Khách sạn 4 sao) | Kích cầu du lịch</h2><br>
-                            <p>Nơi khởi hành: <span class="font-bold">TP. Hồ Chí Minh</span></p>
-                            <p class="text-md font-bold text-red-500 my-5">7,990,000₫</p>
-                            <div style="display:flex; justify-content: space-between;">
-                                <button class="bg-red-500 text-white py-1 px-2 rounded-md"><i class="fa-solid fa-cart-shopping"></i><span> Đặt ngay</span></button>
-                              <style>
-                                    .chitiet:hover {
-                                        background-color: blue;
-                                
-                                    }
-                                    .chitiet:hover >a {
-                                        color: #F0F0F0;
-                                    }
-                                </style>
-                                <button class="chitiet py-1 px-2 rounded-md" style="border: 1px solid blue; color: blue;"><a href="product.php">Xem chi tiết</a></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mx-3 border border-solid rounded-xl my-3">
-                        <img src="https://media.travel.com.vn/destination/tf_220715111546_272791.jpg" alt="">
-                        <div class="p-3">
-                            <h2 class="font-bold">Hà Nội - Vịnh Hạ Long - Chùa Bái Đính - Tràng An - Tuyệt Tịnh Cốc (Khách sạn 4 sao) | Kích cầu du lịch</h2><br>
-                            <p>Nơi khởi hành: <span class="font-bold">TP. Hồ Chí Minh</span></p>
-                            <p class="text-md font-bold text-red-500 my-5">7,990,000₫</p>
-                            <div style="display:flex; justify-content: space-between;">
-                                <button class="bg-red-500 text-white py-1 px-2 rounded-md"><i class="fa-solid fa-cart-shopping"></i><span> Đặt ngay</span></button>
-                              <style>
-                                    .chitiet:hover {
-                                        background-color: blue;
-                                
-                                    }
-                                    .chitiet:hover >a {
-                                        color: #F0F0F0;
-                                    }
-                                </style>
-                                <button class="chitiet py-1 px-2 rounded-md" style="border: 1px solid blue; color: blue;"><a href="product.php">Xem chi tiết</a></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mx-3 border border-solid rounded-xl my-3">
-                        <img src="https://media.travel.com.vn/destination/tf_220715111546_272791.jpg" alt="">
-                        <div class="p-3">
-                            <h2 class="font-bold">Hà Nội - Vịnh Hạ Long - Chùa Bái Đính - Tràng An - Tuyệt Tịnh Cốc (Khách sạn 4 sao) | Kích cầu du lịch</h2><br>
-                            <p>Nơi khởi hành: <span class="font-bold">TP. Hồ Chí Minh</span></p>
-                            <p class="text-md font-bold text-red-500 my-5">7,990,000₫</p>
-                            <div style="display:flex; justify-content: space-between;">
-                                <button class="bg-red-500 text-white py-1 px-2 rounded-md"><i class="fa-solid fa-cart-shopping"></i><span> Đặt ngay</span></button>
-                              <style>
-                                    .chitiet:hover {
-                                        background-color: blue;
-                                
-                                    }
-                                    .chitiet:hover >a {
-                                        color: #F0F0F0;
-                                    }
-                                </style>
-                                <button class="chitiet py-1 px-2 rounded-md" style="border: 1px solid blue; color: blue;"><a href="product.php">Xem chi tiết</a></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mx-3 border border-solid rounded-xl my-3">
-                        <img src="https://media.travel.com.vn/destination/tf_220715111546_272791.jpg" alt="">
-                        <div class="p-3">
-                            <h2 class="font-bold">Hà Nội - Vịnh Hạ Long - Chùa Bái Đính - Tràng An - Tuyệt Tịnh Cốc (Khách sạn 4 sao) | Kích cầu du lịch</h2><br>
-                            <p>Nơi khởi hành: <span class="font-bold">TP. Hồ Chí Minh</span></p>
-                            <p class="text-md font-bold text-red-500 my-5">7,990,000₫</p>
-                            <div style="display:flex; justify-content: space-between;">
-                                <button class="bg-red-500 text-white py-1 px-2 rounded-md"><i class="fa-solid fa-cart-shopping"></i><span> Đặt ngay</span></button>
-                              <style>
-                                    .chitiet:hover {
-                                        background-color: blue;
-                                
-                                    }
-                                    .chitiet:hover >a {
-                                        color: #F0F0F0;
-                                    }
-                                </style>
-                                <button class="chitiet py-1 px-2 rounded-md" style="border: 1px solid blue; color: blue;"><a href="product.php">Xem chi tiết</a></button>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                            }
+                        }
+                    ?>
+
                 </div>
             </div>
         </div>
