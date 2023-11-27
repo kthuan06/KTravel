@@ -20,20 +20,20 @@
                     <a class="mx-2" href=""><?php echo $row['product_location'] ?></a>
                 </p>
             </div>
-            <div class="grid grid-cols-2 mt-5 product-top">
+            <div class="grid grid-cols-2 my-5 product-top">
                 <div>
                     <p class="font-bold text-2xl"><?php echo $row['product_name'] ?></p>
                     <div class="flex mt-3" >
                         <p class="text-sm"><?php echo $row['product_code'] ?>
                     </p>
-                    <button class="open_popup text-red-500 border border-solid py-3 px-7 ml-3 rounded-md"><i class="fa-solid fa-heart"></i><span class="text-black"> <?php echo $row['product_like'] ?></span></button>
+                    
                     </div>
                 </div>
                 <div>
                     <div class="flex">
                         <div class="w-1/3"></div>
                         <div class="grid grid-cols-2">
-                            <div><span class="font-bold text-2xl text-red-500"><?php echo $row['product_price'] ?></span><span>/khách</span></div>
+                            <div><span class="font-bold text-2xl text-red-500"><?php echo number_format($row['product_price'], 2, '.', ',') ?></span><span>/khách</span></div>
                             <div class="ml-3">
                                    <button type="submit" class="bg-red-500 text-white py-3 px-4 rounded-md w-full mb-3"><i class="fa-solid fa-cart-shopping"></i><span> Thêm vào giỏ hàng</span></button> <br>
                                 <style>
@@ -53,16 +53,16 @@
             <div class="product_content">
                 <div class="product_img flex"   >
                     <div class="w-7/12">
-                        <img class="h-full rounded-2xl"  src="<?php echo $row['img_product1'] ?>" alt="">
+                        <img class="h-full rounded-2xl"  src="admin/main/uploads/<?php echo $row['img_product1'] ?>" alt="">
                     </div>
                     <div class="w-5/12">
                         <div class="flex">
-                            <div class="mx-2"><img class=" rounded-2xl" src="<?php echo $row['img_product2'] ?>" alt=""></div>
-                            <div><img class=" rounded-2xl" src="<?php echo $row['img_product3'] ?>" alt=""></div>
+                            <div class="mx-2"><img class=" rounded-2xl" src="admin/main/uploads/<?php echo $row['img_product2'] ?>" alt=""></div>
+                            <div><img class=" rounded-2xl" src="admin/main/uploads/<?php echo $row['img_product3'] ?>" alt=""></div>
 
                         </div>
                         <div  class="ml-2 mt-2">
-                        <img class=" rounded-2xl" src="<?php echo $row['img_product4'] ?>" alt="">
+                        <img class=" rounded-2xl" src="admin/main/uploads/<?php echo $row['img_product4'] ?>" alt="">
                         </div>
                     </div>
                 </div>
@@ -72,16 +72,13 @@
                     <p class="text-sm"><?php echo $row['product_detail'] ?></p>
                     <div class="my-5 p-5">
                         <ul>
-                            <li>Khởi hành <span class="font-bold"><?php echo $row['product_timestart'] ?></span></li>
-                            <li>Tập trung <span class="font-bold"><?php echo $row['product_time'] ?></span></li>
-                            <li>Thời gian  <span class="font-bold">4 ngày</span></li>
-                            <li>Nơi khởi hành <span class="font-bold"><?php echo $row['product_location'] ?></span></li>
+                            <li>Địa điểm <span class="font-bold"><?php echo $row['product_location'] ?></span></li>
                         </ul>
                     </div>
                     <p>Quý khách cần hỗ trợ?</p>
                     <div style="border: 1px solid blue;" class="w-3/4 rounded-xl flex mt-5">
                         <button class="bg-blue-500 text-white w-1/2 px-6 py-1 rounded-xl "><i class="fa-solid fa-phone"></i><span> Gọi miễn phí qua internet</span></button>
-                        <button class="bg-white text-blue-500  w-1/2 px-6 py-1 rounded-xl "><i class="fa-solid fa-envelope"></i><span> Gửi yêu cầu hỗ trợ ngay</span></button>
+                        <div class="bg-white text-blue-500  w-1/2 px-6 py-1 rounded-xl "><a href="#newsletter"><i class="fa-solid fa-envelope"></i><span> Gửi yêu cầu hỗ trợ ngay</span></a></div>
                 </div>
                 </div>
                 <div class="w-3/5 h-2/3">
@@ -94,37 +91,37 @@
                         <div class="my-5 mx-2">
                             <img class="w-1/6" src="https://travel.com.vn/Content/Theme/images/icons/phuong%20tien%20di%20chuyen.png" alt="">
                             <p class="font-bold">Phương tiện di chuyển</p>
-                            <p class="text-sm"><?php echo $row['product_vehicle'] ?></p>
+                            <p class="text-sm">Xe khách</p>
                         </div>
                         <div class="my-5 mx-2">
                             <img class="w-1/6" src="https://travel.com.vn/Content/Theme/images/icons/diem%20tham%20quan.png" alt="">
                             <p class="font-bold">Điểm tham quan</p>
-                            <p class="text-sm"><?php echo $row['product_locations'] ?>/p>
+                            <p class="text-sm"><?php echo $row['product_name'] ?></p>
                         </div>
                         <div class="my-5 mx-2">
                             <img class="w-1/6" src="https://travel.com.vn/Content/Theme/images/icons/khach%20san.png" alt="">
                             <p class="font-bold">Khách sạn</p>
-                            <p class="text-sm"><?php echo $row['product_hotel'] ?></p>
+                            <p class="text-sm"></p>
                         </div>
                         <div class="my-5 mx-2">
                             <img class="w-1/6" src="https://travel.com.vn/Content/Theme/images/icons/thoi%20gian%20ly%20tuong.png" alt="">
                             <p class="font-bold">Thời gian lí tưởng</p>
-                            <p class="text-sm"><?php echo $row['product_timelt'] ?></p>
+                            <p class="text-sm">Mùa hè</p>
                         </div>
                         <div class="my-5 mx-2">
                             <img class="w-1/6" src="https://travel.com.vn/Content/Theme/images/icons/doi%20tuong%20thich%20hop.png" alt="">
                             <p class="font-bold">Dối tượng thích hợp</p>
-                            <p class="text-sm"><?php echo $row['product_object'] ?></p>
+                            <p class="text-sm">Gia đình, cặp đôi</p>
                         </div>
                         <div class="my-5 mx-2">
                             <img class="w-1/6" src="https://travel.com.vn/Content/Theme/images/icons/am%20thuc.png" alt="">
                             <p class="font-bold">Ẩm thực</p>
-                            <p class="text-sm"><?php echo $row['product_at'] ?></p>
+                            <p class="text-sm">Đặc sản địa phương</p>
                         </div>
                         <div class="my-5 mx-2">
                             <img class="w-1/6" src="https://travel.com.vn/Content/Theme/images/icons/uu%20dai.png" alt="">
                             <p class="font-bold">Thời gian</p>
-                            <p class="text-sm"><?php echo $row['product_promotion'] ?></p>
+                            <p class="text-sm"></p>
                         </div>
                        <style>
                         hr{

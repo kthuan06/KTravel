@@ -18,11 +18,11 @@ include "admin/config/config.php";
 
 <?php 
     
-    $sql_pro_in = "SELECT *from tbl_product WHERE product_start = 'Trong nước'";
+    $sql_pro_in = "SELECT *from tbl_product WHERE product_type = 'Trong nước'";
     $query_pro_in = mysqli_query($mysqli, $sql_pro_in);
     
                 
-    $sql_pro_out = "SELECT *from tbl_product WHERE product_start = 'Ngoài nước'";
+    $sql_pro_out = "SELECT *from tbl_product WHERE product_type = 'Ngoài nước'";
     $query_pro_out = mysqli_query($mysqli, $sql_pro_out);
     
 
@@ -169,11 +169,11 @@ include "admin/config/config.php";
 
                 <?php 
                 
-                $sql_pro_in = "SELECT *from tbl_product WHERE product_start = 'Trong nước'";
+                $sql_pro_in = "SELECT *from tbl_product WHERE product_type = 'Trong nước'";
                 $query_pro_in = mysqli_query($mysqli, $sql_pro_in);
                 
                             
-                $sql_pro_out = "SELECT *from tbl_product WHERE product_start = 'Ngoài nước'";
+                $sql_pro_out = "SELECT *from tbl_product WHERE product_type = 'Ngoài nước'";
                 $query_pro_out = mysqli_query($mysqli, $sql_pro_out);
             
                 ?>  
@@ -187,14 +187,14 @@ include "admin/config/config.php";
                         
                     ?>
                     <div class="mx-3 border border-solid rounded-xl mt-5">
-                        <img src="<?php echo $row3['product_img'] ?>" alt="">
+                        <img src="admin/main/uploads/<?php echo $row3['product_img'] ?>" alt="">
                         <div class="p-3">
                             <h2 class="font-bold"><?php echo $row3['product_name'] ?></h2><br>
                             <p>Địa điểm: <span class="font-bold"><?php echo $row3['product_location'] ?></span></p>
-                            <p class="text-md font-bold text-red-500 my-5"><?php echo $row3['product_price'] ?>₫</p>
+                            <p class="text-md font-bold text-red-500 my-5"><?php echo number_format($row3['product_price'], 2, '.', ',') ?>₫</p>
                             <p class="text-sm font-bold my-5"> Mã: <?php echo $row3['product_code'] ?></p>
                             <div style="display:flex; justify-content: space-between;">
-                                <a href="index.php?main=payment"><button class="bg-red-500 text-white py-1 px-2 rounded-md"><i class="fa-solid fa-cart-shopping"></i><span> Đặt ngay</span></button></a>
+                                <a href="index.php?main=payment2&action=booknow&code=<?php echo $row3['product_code'] ?>"><button class="bg-red-500 text-white py-1 px-2 rounded-md"><i class="fa-solid fa-cart-shopping"></i><span> Đặt ngay</span></button></a>
                                 <style>
                                     .chitiet:hover {
                                         background-color: blue;
@@ -215,14 +215,14 @@ include "admin/config/config.php";
                         
                    ?>
                    <div class="mx-3 border border-solid rounded-xl mt-5">
-                        <img src="<?php echo $row4['product_img'] ?>" alt="">
+                        <img src="admin/main/uploads/<?php echo $row4['product_img'] ?>" alt="">
                         <div class="p-3">
                             <h2 class="font-bold"><?php echo $row4['product_name'] ?></h2><br>
                             <p>Địa điểm: <span class="font-bold"><?php echo $row4['product_location'] ?></span></p>
-                            <p class="text-md font-bold text-red-500 my-5"><?php echo $row4['product_price'] ?>₫</p>
+                            <p class="text-md font-bold text-red-500 my-5"><?php echo number_format($row4['product_price'], 2, '.', ',') ?>₫</p>
                             <p class="text-sm font-bold my-5"> Mã: <?php echo $row4['product_code'] ?></p>
                             <div style="display:flex; justify-content: space-between;">
-                                <a href="index.php?main=payment1"><button class="bg-red-500 text-white py-1 px-2 rounded-md"><i class="fa-solid fa-cart-shopping"></i><span> Đặt ngay</span></button></a>
+                                <a href="index.php?main=payment2&action=booknow&code=<?php echo $row4['product_code'] ?>"><button class="bg-red-500 text-white py-1 px-2 rounded-md"><i class="fa-solid fa-cart-shopping"></i><span> Đặt ngay</span></button></a>
                                 <style>
                                     .chitiet:hover {
                                         background-color: blue;
@@ -250,14 +250,14 @@ include "admin/config/config.php";
                         
                     ?>
                         <div class="mx-3 border border-solid rounded-xl mt-5">
-                        <img src="<?php echo $row5['product_img'] ?>" alt="">
+                        <img src="admin/main/uploads/<?php echo $row5['product_img'] ?>" alt="">
                         <div class="p-3">
                             <h2 class="font-bold"><?php echo $row5['product_name'] ?></h2><br>
                             <p>Địa điểm: <span class="font-bold"><?php echo $row5['product_location'] ?></span></p>
-                            <p class="text-md font-bold text-red-500 my-5"><?php echo $row5['product_price'] ?>₫</p>
+                            <p class="text-md font-bold text-red-500 my-5"><?php echo number_format($row5['product_price'], 2, '.', ',') ?>₫</p>
                             <p class="text-sm font-bold my-5"> Mã: <?php echo $row5['product_code'] ?></p>
                             <div style="display:flex; justify-content: space-between;">
-                                <a href="index.php?main=payment1"><button class="bg-red-500 text-white py-1 px-2 rounded-md"><i class="fa-solid fa-cart-shopping"></i><span> Đặt ngay</span></button></a>
+                                <a href="index.php?main=payment2&action=booknow&code=<?php echo $row5['product_code'] ?>"><button class="bg-red-500 text-white py-1 px-2 rounded-md"><i class="fa-solid fa-cart-shopping"></i><span> Đặt ngay</span></button></a>
                                 <style>
                                     .chitiet:hover {
                                         background-color: blue;

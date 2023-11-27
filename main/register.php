@@ -11,18 +11,24 @@
         $sql_register = mysqli_query($mysqli, "INSERT INTO 
 		tbl_register(register_name, register_phonenumber, register_password, register_address, register_email)
 		VALUES ('".$username."', '".$phonenumber."','".$password."','".$address."','".$email."')");
+		$_SESSION['Register'] = $username;
+
+		$_SESSION['id_user'] = mysqli_insert_id($mysqli);
+
 		if(isset($_SESSION['cart'])){
-			$string = implode($_SESSION['cart']);
-			$sql_add_sscart = mysqli_query($mysqli, "INSERT INTO tbl_session_cart(session_user, session_cart)
-			VALUES ('".$email."', '".$string."')") ;
+
+			foreach ($_SESSION['cart'] as $key => $item){
+				$amount = $item['qty'];
+				$sql_add_sscart = mysqli_query($mysqli, "INSERT INTO tbl_session_cart(session_user, session_cart, product_amount)
+			VALUES ('".$_SESSION['id_user']."', '".$item['code']."', '".$amount."')") ;
+			}
+			
 		}
 
 
 		if($sql_register){
-			$_SESSION['Register'] = $username;
-
-			$_SESSION['id_user'] = mysqli_insert_id($mysqli);
-			header('Location:http://localhost/DACS2/index.php');
+			
+			header('Location:sendmail.php?email='.$email.'&name='.$username);
 		}
     }
 

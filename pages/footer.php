@@ -1,7 +1,7 @@
 <div style="background-color: #F0F0F0;" class="footer pb-16">
         
-        <div class="flex" >
-            <div class="w-4/6 grid grid-cols-3 mt-16" >
+        <div class="flex flex-wrap" >
+            <div class="lg:w-7/12 w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 mt-16 " >
                 <div class="mx-16">
                 <p class="text-xl font-bold">Du lịch trong nước</p>
                     <div class="grid grid-cols-2">
@@ -66,7 +66,7 @@
                     </div>
                 </div>
        
-            <div class="w-2/6 mt-16 ml-32" >
+            <div class="lg:w-4/12 w-5/6 mt-16 lg:ml-auto mx-auto" >
                 <p class="text-xl font-bold mb-5">Ứng dụng di động</p>
                 <div class="grid grid-cols-2">
                     <img src="https://travel.com.vn/Content/Theme/images/ggp.webp" alt=""><img src="https://travel.com.vn/Content/Theme/images/aps.webp" alt="">
@@ -76,7 +76,7 @@
                 </div>
             </div>
         </div>
-        <div class="grid grid-cols-2 mt-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 mt-10">
             <div class="grid grid-cols-2">
                 <div class="mx-16">
                     <p class="text-xl font-bold">Liên hệ</p>
@@ -122,12 +122,12 @@
                 </div>
             </div>
 
-            <div>
-                <form action="">
+            <div class="w-5/6 mx-auto mt-10 lg:mt-0">
+                <form action="main/sendmail.php" method="post" >
                     <p class="text-xl font-bold mb-3">Newsletter</p>
                     <div style="margin-bottom: 15px; width: 300px; border: 1px solid; border-color:#22668D; background-color: white; border-radius: 10px; padding-left: 10px;">
-                        <input style="padding: 10px; width: 240px; border-right: 1px solid #22668D;" type="email" name="" id="" placeholder="Email của quý khách">
-                        <input class="bg-white pl-2" type="submit" value="Gửi">
+                        <input id="newsletter" style="padding: 10px; width: 240px; border-right: 1px solid #22668D;" type="email" name="email" id="" placeholder="Email của quý khách">
+                        <input class="bg-white pl-2" type="submit" value="Gửi" name='newsletter'>
                     </div>
                    </form>
                 <form action="">
@@ -170,7 +170,7 @@
 
 <div class="py-5">
     <p class="text-sm ml-28">Bản quyền của Vietravel ® 2016. Bảo lưu mọi quyền. <br>
-Ghi rõ nguồn "www.travel.com.vn" ® khi sử dụng lại thông tin từ website này. <br>
+Nguồn tham khảo "www.travel.com.vn" ®. <br>
 Số giấy phép kinh doanh lữ hành Quốc tế: 79-234/2014/TCDL-GP LHQT</p>
 </div>
 </body>

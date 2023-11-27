@@ -22,7 +22,9 @@
 		$row2 = mysqli_query($mysqli, $sql2);
 		$count1 = mysqli_num_rows($row1);
 		$count2 = mysqli_num_rows($row2);
-
+		if(isset($_SESSION['cart'])){
+			unset($_SESSION['cart']);
+		}
 		if($count1 > 0){
 			$row_data = mysqli_fetch_array($row1);
 			

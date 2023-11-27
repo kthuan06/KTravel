@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 </head>
-
-<div id="">
+<div id="" >
     <?php
         if(isset($_GET['main'])){
             $tam = $_GET['main'];
@@ -29,11 +28,15 @@
         }
         elseif($tam == 'payment'){
             include("main/payment.php");
+        }elseif($tam == 'payment2'){
+            include("main/payment2.php");
         }
         elseif($tam == 'cart'){
             include("main/cart_view.php");
         }elseif($tam == 'find'){
             include("main/findproduct.php");
+        }elseif($tam == 'contact'){
+            include("main/contact.php");
         }
         else{
             include("main/content.php");

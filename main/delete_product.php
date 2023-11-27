@@ -31,7 +31,7 @@
                 $sql_update = mysqli_query($mysqli, "UPDATE tbl_session_cart SET product_amount = '".$update_amount."'");
             }
         }
-        
+         
 
         foreach ($_SESSION['cart'] as $key => $item) {
             if ($item['code'] != $id) {
