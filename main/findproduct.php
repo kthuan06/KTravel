@@ -23,7 +23,7 @@
                             <p class="text-md font-bold text-red-500 my-5"><?php echo number_format($row3['product_price'], 2, '.', ',') ?>₫</p>
                             <p class="text-sm font-bold my-5"> Mã: <?php echo $row3['product_code'] ?></p>
                             <div style="display:flex; justify-content: space-between;">
-                                <a href="index.php?main=payment"><button class="bg-red-500 text-white py-1 px-2 rounded-md"><i class="fa-solid fa-cart-shopping"></i><span> Đặt ngay</span></button></a>
+                                <a href="index.php?main=payment2&action=booknow&code=<?php echo $row3['product_code'] ?>"><button class="bg-red-500 text-white py-1 px-2 rounded-md"><i class="fa-solid fa-cart-shopping"></i><span> Đặt ngay</span></button></a>
                                 <style>
                                     .chitiet:hover {
                                         background-color: blue;

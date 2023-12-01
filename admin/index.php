@@ -133,6 +133,7 @@
                 <li class="nav-item"> <a class="nav-link" href="index.php?action=menu&query=add">MENU</a></li>
                 <li class="nav-item"> <a class="nav-link" href="index.php?action=cartegory&query=add">CARTEGORY</a></li>
                 <li class="nav-item"> <a class="nav-link" href="index.php?action=product&query=add">PRODUCT</a></li>
+                <li class="nav-item"> <a class="nav-link" href="index.php?action=order">ORDER</a></a></li>
               </ul>
             </div>
           </li>
@@ -421,7 +422,8 @@
                   include('main/cartegory.php');
                 }elseif($tmp == 'product'){
                   include('main/product.php');
-                 
+                }elseif($tmp == 'order'){
+                  include('main/order.php');
                 }
             ?>
          </div>

@@ -3,7 +3,7 @@
 	include('config/config.php');
 	if(isset($_POST['Login'])){
 		$username = $_POST['Username'];
-		$password = $_POST['Password'];
+		$password = md5($_POST['Password']) ;
 		$sql = "SELECT * FROM tbl_admin WHERE username = '".$username."' AND password = '".$password."'  LIMIT 1";
 		$row = mysqli_query($mysqli, $sql);
 		$count = mysqli_num_rows($row);
@@ -51,7 +51,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	           <!--form-stars-here-->
 						<div class="wthree-form">
 						
-							<form action="" autocomplete="off" method="post">
+							<form action=""  method="post">
 								<div class="form-sub-w3">
 									<input type="text" name="Username" placeholder="Username " required="" />
 								<div class="icon-w3">

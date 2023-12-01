@@ -1,4 +1,4 @@
-<div style="background-color: #F0F0F0;" class="footer pb-16">
+<div style="background-color: #F0F0F0;" class="footer pb-16 mt-5">
         
         <div class="flex flex-wrap" >
             <div class="lg:w-7/12 w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 mt-16 " >

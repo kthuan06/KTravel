@@ -475,7 +475,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <img src="https://travel.com.vn/Content/Theme/images/ggp.webp" alt=""><img src="https://travel.com.vn/Content/Theme/images/aps.webp" alt="">
                     <p>Android</p>
                     <p>iOS</p>
-                    <img style="width:60%;" src="../images/qrbank.jpg" alt=""><img style="width:60%;" src="./images/qrfb.jpg" alt="">
+                    <img style="width:60%;" src="../images/qrbank.jpg" alt=""><img style="width:60%;" src="../images/qrfb.jpg" alt="">
                 </div>
             </div>
         </div>

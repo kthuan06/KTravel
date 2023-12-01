@@ -33,7 +33,7 @@ include "admin/config/config.php";
 ?>
 
 <!----------Cartegory---------->
-    <section class="cartegory mx-20 mt-10">
+    <section class="cartegory mx-auto w-11/12 mt-10">
         <div class="container">
             <div>
                 <p><a href="index.php" class="mx-2">Trang chủ</a> <span class="mx-2">&#8594;</span> <a class="mx-2" href="">Địa điểm</a></p>
@@ -57,8 +57,8 @@ include "admin/config/config.php";
             }
         </style>
 
-        <div class="flex mt-10">
-            <div class="w-1/6 mx-auto">
+        <div class="flex mt-10 ">
+            <div class="w-1/6 mx-auto hidden md:block">
                 <ul>
                     <li class="text-2xl font-bold mb-10  locations"><a href="index.php?main=location&id=in">Trong nước</a>
                         <ul class="text-sm font-medium mt-3 ml-5">
@@ -85,7 +85,7 @@ include "admin/config/config.php";
             
             
            
-            <div class="w-5/6 mx-auto">
+            <div class="w-5/6 mx-auto"> 
                 <div class="grid grid-cols-2">
 
                     <div>           
@@ -110,7 +110,7 @@ include "admin/config/config.php";
                     <form class="grid grid-cols-2" action="index.php?main=find" method="POST">
                         <div class="mx-1 flex">
                             <input type="text" class="border border-solid rounded-md w-5/6 py-1" placeholder="Tim kiem..." name="keyword">
-                            <button type="sub" class="border border-solid py-1 w-1/6 rounded-md" name="find" value="find">Tim</button>
+                            <button type="sub" class="block px-4 leading-loose text-xs text-center font-semibold leading-none bg-blue-100 hover:bg-gray-100 rounded-xl" name="find" value="find">Tìm</button>
                         </div>
                         <!-- <div class="mx-1" >
                             <select name="order" id="" class="border border-solid px-16 py-1 w-full rounded-md" style="cursor: pointer;"> 
@@ -180,7 +180,7 @@ include "admin/config/config.php";
 
 
 
-                <div class="content grid grid-cols-3  mt-5">
+                <div class="content grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1  mt-5">
                     <?php
                         if($_GET['id'] == 'in'){
                             while($row3 = mysqli_fetch_array($query_pro_in)){
