@@ -52,8 +52,16 @@
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
 				</svg>
 			</li>
+
             <?php
-                }
+                            
+                }if(isset($_SESSION['Register'])){
+                        ?>
+                        <li class="mb-1">
+                            <a class="block p-4 text-sm font-semibold text-black-400 hover:bg-blue-50 hover:text-blue-600 rounded"  href=""><i class="fa-solid fa-user"></i></a>
+                        </li>
+                        <?php
+                    }    
                 ?>
 			
 		</ul>
@@ -95,12 +103,20 @@
                 while($row = mysqli_fetch_array($query)){
             ?>
 					<li class="mb-1">
-						<a class="block p-4 text-sm font-semibold text-black-400 hover:bg-blue-50 hover:text-blue-600 rounded"  href="<?php echo $row['list_address']?>"><?php echo $row['list_name']?></a>
+						<a class="block p-4 text-sm font-semibold text-black-400 hover:bg-blue-50 hover:text-blue-600 rounded"  href="<?php echo $row['list_address']?>"><?php echo $row['list_name'] ?> </a>
 					</li>
 					
                     <?php
                 }
+                if(isset($_SESSION['Register'])){
+                    ?>
+                    <li class="mb-1">
+						<a class="block p-4 text-sm font-semibold text-black-400 hover:bg-blue-50 hover:text-blue-600 rounded"  href=""><i class="fa-solid fa-user"></i></a>
+					</li>
+                    <?php
+                }
                 ?>
+
 				</ul>
 			</div>
 			<div class="mt-auto">

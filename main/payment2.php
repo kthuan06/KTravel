@@ -117,10 +117,10 @@ if(isset($_GET['action']) && $_GET['action'] =='booknow'){
                             <p class="mt-5 text-sm lg:text-xl font-bold">Tổng cộng</p><p style="color: red;" class="mt-5 ml-auto text-2xl font-bold"><?php echo get_subtotal()  ?>đ</p>
                         </div>
                         <div class="flex mt-5 justify-between">
-                        <a href="" ><button type="submit"  class="w-56" style="background-color: black; color: white; border-radius: 10px;  height: 30px; font-weight: bold; ">
+                        <a href="" ><button name="off" type="submit"  class="w-56" style="background-color: black; color: white; border-radius: 10px;  height: 30px; font-weight: bold; ">
                            Thanh toán khi nhận hàng
                         </button></a>
-                        <a href=""><button class="w-56" style="background-color: black; color: white; border-radius: 10px;  height: 30px; font-weight: bold; ">
+                        <a href=""><button type="submit" name="on" class="w-56" style="background-color: black; color: white; border-radius: 10px;  height: 30px; font-weight: bold; ">
                             Chuyển khoản VieQR
                         </button></a>
                         </div>

@@ -107,19 +107,19 @@ include "admin/config/config.php";
                         ?>
                     </p>
                     </div>
-                    <form class="grid grid-cols-2" action="index.php?main=find" method="POST">
-                        <div class="mx-1 flex">
-                            <input type="text" class="border border-solid rounded-md w-5/6 py-1" placeholder="Tim kiem..." name="keyword">
+                    <form class="flex" action="index.php?main=find" method="POST">
+                            <div class="mx-1">
+                                <input type="text" class="border border-solid rounded-md w-full py-2" placeholder="Tim kiem..." name="keyword">
+                                 </div>
+                            <div class="mx-1" >
+                                <select name="order" id="" class="border border-solid px-16 py-2 w-auto rounded-md" style="cursor: pointer;"> 
+                                    <option value="">Sắp xếp</option>
+                                    <option value="high">Giá cao đến thấp</option>
+                                    <option value="low">Giá thấp đến cao</option>
+                                </select>
+                            </div>
                             <button type="sub" class="block px-4 leading-loose text-xs text-center font-semibold leading-none bg-blue-100 hover:bg-gray-100 rounded-xl" name="find" value="find">Tìm</button>
-                        </div>
-                        <!-- <div class="mx-1" >
-                            <select name="order" id="" class="border border-solid px-16 py-1 w-full rounded-md" style="cursor: pointer;"> 
-                                <option value="">Sắp xếp</option>
-                                <option value="high">Giá cao đến thấp</option>
-                                <option value="low">Giá thấp đến cao</option>
-                            </select>
-                        </div> -->
-                        
+                           
                     </form>
                 </div>
                 <!-- <style>

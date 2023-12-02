@@ -83,6 +83,7 @@ if(isset($_GET['query']) && $_GET['query'] == 'view'){
                             <th class="w-1/6 min-w-[160px] py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4"> PHONENUMBER </th>
                             <th class="w-1/6 min-w-[160px] py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4"> NOTE </th>
                             <th class="w-1/6 min-w-[160px] py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4"> STATE </th>
+                            <th class="w-1/6 min-w-[160px] py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4"> PAYMENTS </th>
                             <th class="w-1/6 min-w-[160px] py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4"> MANAGER </th>
                           </tr>
                         </thead>
@@ -111,6 +112,17 @@ if(isset($_GET['query']) && $_GET['query'] == 'view'){
                             }else{
                               ?>
                               <td> Đã xác nhận </td>
+                              <?php
+                            }
+                            ?>
+                            <?php 
+                            if($row['cart_payments'] == 1){
+                              ?>
+                              <td> Khi nhận hàng </td>
+                              <?php
+                            }else{
+                              ?>
+                              <td> VNPAY </td>
                               <?php
                             }
                             ?>
