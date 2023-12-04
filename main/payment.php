@@ -129,7 +129,7 @@ function get_subtotal() {
     <p class="font-bold mt-5">ĐẶT HÀNG THÀNH CÔNG</p>
     <p class="mb-5">Cám ơn bạn đã đặt hàng tại KTRAVEL</p>
     <a href="http://localhost/DACS2/main/mailconfirm.php">
-        <button class="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200" >Trang chủ</button>
+        <button class="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200" >Hoàn tất</button>
     </a>
 </div>
 <?php
