@@ -32,7 +32,7 @@ function get_subtotal() {
     if(isset($_POST['off'])){
 
         $insert_cart = " INSERT INTO tbl_cart(id_user, code_cart, cart_status, cart_payments, cart_price, cart_name, cart_email, cart_phone, cart_address, cart_note) 
-        VALUES  ('".$id_user."', '".$_SESSION['cart_code']."', 1, 0, '".$subtotal."', '".$_POST['name_customer']."', '".$_POST['email_customer']."', '".$_POST['phone_customer']."', '".$_POST['address_customer']."', '".$_POST['note']."') ";
+        VALUES  ('".$id_user."', '".$_SESSION['cart_code']."', 1, 1, '".$subtotal."', '".$_POST['name_customer']."', '".$_POST['email_customer']."', '".$_POST['phone_customer']."', '".$_POST['address_customer']."', '".$_POST['note']."') ";
         $query = mysqli_query($mysqli, $insert_cart);
 
         $sql = mysqli_query($mysqli, "DELETE FROM tbl_session_cart WHERE session_user = '".$_SESSION['id_user']."' ");
