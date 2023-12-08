@@ -33,7 +33,7 @@
                     <div class="flex">
                         <div class="w-1/3"></div>
                         <div class="grid grid-cols-2">
-                            <div><span class="font-bold text-2xl text-red-500"><?php echo number_format($row['product_price'], 2, '.', ',') ?></span><span>/khách</span></div>
+                            <div><span class="font-bold text-2xl text-red-500"><?php echo number_format($row['product_price'], 0, ',', '.') ?></span><span>/khách</span></div>
                             <div class="ml-3">
                                    <button type="submit" class="bg-red-500 text-white py-3 px-4 rounded-md w-full mb-3"><i class="fa-solid fa-cart-shopping"></i><span> Thêm vào giỏ hàng</span></button> <br>
                                 <style>

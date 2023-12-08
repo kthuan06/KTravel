@@ -140,7 +140,7 @@ function get_subtotal() {
     <img src="images/payment-success.jpg" class="mx-auto w-2/12" alt="" >
     <p class="font-bold mt-5">THANH TOÁN QUA VNPAY</p>
     <p class="mb-5">Cám ơn bạn đã đặt hàng tại KTRAVEL</p>
-    <a href="<?php echo  $vnp_Url?>">
+    <a href="<?php echo  $vnp_Url ?> ">
         <button class="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200" >Chuyển đến trang thanh toán</button>
     </a>
 </div>

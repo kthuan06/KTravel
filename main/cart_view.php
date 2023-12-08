@@ -83,7 +83,7 @@ session_start();
         foreach ($_SESSION['cart'] as $item) {
             $subtotal += $item['total'];
         }
-        $subtotal_f = number_format($subtotal, 2);
+        $subtotal_f = number_format($subtotal, 0, ',','.');
         return $subtotal_f;
     }
 
@@ -314,8 +314,8 @@ document.addEventListener('DOMContentLoaded', function() {
                   <div class="w-3/5 p-5 rounded-xl">
                     
                         <?php foreach( $_SESSION['cart'] as $key => $item ) :
-                            $cost  = number_format($item['cost'],  2);
-                            $total = number_format($item['total'], 2);
+                            $cost  = number_format($item['cost'],  0, ',','.');
+                            $total = number_format($item['total'], 0, ',','.');
                         ?>
                         <div style="background-color: #F0F0F0;" class=" my-5 rounded-xl p-5">
                             <div class="flex" >

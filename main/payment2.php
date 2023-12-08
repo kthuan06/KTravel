@@ -7,7 +7,7 @@ function get_subtotal() {
     foreach ($_SESSION['cart'] as $item) {
         $subtotal += $item['total'];
     }
-    $subtotal_f = number_format($subtotal, 2);
+    $subtotal_f = number_format($subtotal, 0, ',','.');
     return $subtotal_f;
 }
 
@@ -50,8 +50,8 @@ if(isset($_GET['action']) && $_GET['action'] =='booknow'){
                 </p>
             </div>
             <?php foreach( $_SESSION['cart'] as $key => $item ) {
-                            $cost  = number_format($item['cost'],  2);
-                            $total = number_format($item['total'], 2);
+                            $cost  = number_format($item['cost'],  0, ',','.');
+                            $total = number_format($item['total'], 0, ',','.');
                         ?>
             <div class="flex my-10">
                 <img class="w-3/12 rounded-xl" src="admin/main/uploads/<?php echo $item['image'] ?>" alt="">
@@ -93,8 +93,8 @@ if(isset($_GET['action']) && $_GET['action'] =='booknow'){
 
                 <div class="w-1/3 ml-5 border border-solid p-5 rounded-xl"><p class="font-bold text-xl">Đơn hàng</p>
                 <?php foreach( $_SESSION['cart'] as $key => $item ) {
-                            $cost  = number_format($item['cost'],  2);
-                            $total = number_format($item['total'], 2);
+                            $cost  = number_format($item['cost'],  0, ',','.');
+                            $total = number_format($item['total'], 0, ',','.');
                         ?>
                     
                     <div class="flex my-3">

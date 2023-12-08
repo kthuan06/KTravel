@@ -6,9 +6,17 @@
           require "../PHPMailer/src/PHPMailer.php";  //nhúng thư viện vào để dùng, sửa lại đường dẫn cho đúng nếu bạn lưu vào chỗ khác
           require "../PHPMailer/src/SMTP.php"; //nhúng thư viện vào để dùng
           require '../PHPMailer/src/Exception.php'; //nhúng thư viện vào để dùng
-
+  function get_subtotal() {
+            $subtotal = 0;
+            foreach ($_SESSION['cart'] as $item) {
+                $subtotal += $item['total'];
+            }
+            $subtotal_f = number_format($subtotal, 0, ',', '.');
+            return $subtotal_f;
+        }
+        
     $insert_cart = " INSERT INTO tbl_cart(id_user, code_cart, cart_status, cart_payments, cart_price, cart_name, cart_email, cart_phone, cart_address, cart_note) 
-    VALUES  ('".$id_user."', '".$_SESSION['cart_code']."', 1, 0, '".$subtotal."', '".$_POST['name_customer']."', '".$_POST['email_customer']."', '".$_POST['phone_customer']."', '".$_POST['address_customer']."', '".$_POST['note']."') ";
+    VALUES  ('".$_SESSION['id_user']."', '".$_SESSION['cart_code']."', 1, 0, '".get_subtotal()."', '".$_SESSION['Register']."', 'thuankim2214@gmail.com', '0915300091', 'Đà Nẵng', 'note') ";
     $query = mysqli_query($mysqli, $insert_cart);
 
     $sql = mysqli_query($mysqli, "DELETE FROM tbl_session_cart WHERE session_user = '".$_SESSION['id_user']."' ");
@@ -65,22 +73,14 @@
         }
         
         
-        function get_subtotal() {
-            $subtotal = 0;
-            foreach ($_SESSION['cart'] as $item) {
-                $subtotal += $item['total'];
-            }
-            $subtotal_f = number_format($subtotal, 2);
-            return $subtotal_f;
-        }
-        
+      
         
         $noidungthu3 = 'Tổng số tiền: '.get_subtotal();;
         
         $noidungthu4 = '<div>   
         Chúc bạn một ngày tốt lành!</p>
         <h2>TRÂN TRỌNG, KT TRAVEL</h2>   </div> ';
-        $noidungthu5 = 'Hình thức thanh toán: VNPAY';
+        $noidungthu5 = '<br> Hình thức thanh toán: VNPAY';
         $mail->Body =  $noidungthu1.$noidung.$noidungthu3.$noidungthu5.$noidungthu4 ;	
 			
         if($mail->send())
