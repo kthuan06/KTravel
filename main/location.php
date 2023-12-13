@@ -36,7 +36,21 @@ include "admin/config/config.php";
     <section class="cartegory mx-auto w-11/12 mt-10">
         <div class="container">
             <div>
-                <p><a href="index.php" class="mx-2">Trang chủ</a> <span class="mx-2">&#8594;</span> <a class="mx-2" href="">Địa điểm</a></p>
+                <p><a href="index.php" class="mx-2">Trang chủ</a> <span class="mx-2">&#8594;</span> <a class="mx-2" href="">Địa điểm</a> <span class="mx-2">&#8594;</span> <?php
+                            if($_GET['id'] == 'in'){
+                                echo "Trong nước";
+                            }elseif($_GET['id'] == 'out') {
+                                echo "Ngoài nước";
+                            }else {
+                                $sql_title = "SELECT *from tbl_cartegory WHERE cartegory_id = $_GET[id]";
+                                $query_title = mysqli_query($mysqli, $sql_title);
+
+                                while($title = mysqli_fetch_array($query_title)){
+                                    echo $title['cartegory_name'];
+                                    $tmp_location = $title['cartegory_name'];
+                                }
+                            }
+                        ?> </p>
             </div>
         </div>
 
