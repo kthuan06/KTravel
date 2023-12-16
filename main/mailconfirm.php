@@ -42,7 +42,7 @@ use PHPMailer\PHPMailer\PHPMailer;
                 </div> ';
 
         foreach( $_SESSION['cart'] as $key => $item ) {
-            $total = number_format($item['total'], 2);
+            $total = number_format($item['total'], 0, ',','.');
             $noidungthu2= '<p>'.$item['name'].' : Số lượng : '.$item['qty'].' : Giá : '. $total.'</p>';
             $noidung = $noidung.$noidungthu2;
         }
@@ -53,7 +53,7 @@ use PHPMailer\PHPMailer\PHPMailer;
             foreach ($_SESSION['cart'] as $item) {
                 $subtotal += $item['total'];
             }
-            $subtotal_f = number_format($subtotal, 2);
+            $subtotal_f = number_format($subtotal, 0, ',' ,'.');
             return $subtotal_f;
         }
         

@@ -160,10 +160,24 @@
                         
                         <p class="font-bold"><?php echo $row1['user_name'] ?></p>
                         <p><?php echo $row1['comment_content'] ?></p>
-                        <br>
+                        
                         <?php
+                        $sql_reply = mysqli_query($mysqli, "SELECT * FROM tbl_reply WHERE id_cmt = '".$row1['id']."' ");
+                        while($row2 = mysqli_fetch_array($sql_reply)){
+                            ?>
+                           
+                            <p class="text-sm ml-5" >
+                            <span class="text-sm ml-5 font-bold">KTRAVEL:</span>
+                               <?php echo $row2['comment'] ?>
+                            </p>
+                            <?php
+                        }
+                        ?>
+                        <br>
+<?php
                        }
                        ?>
+                       
             </div>
     </section>
 <?php

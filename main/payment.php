@@ -26,7 +26,7 @@ function get_subtotal() {
 }
 
 
-    $subtotal = get_subtotal();
+    $subtotal = number_format(get_subtotal(), 0, ',','.');
     
     $_SESSION['cart_code'] = generateRandomString(10); 
     if(isset($_POST['off'])){

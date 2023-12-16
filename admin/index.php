@@ -134,6 +134,8 @@
                 <li class="nav-item"> <a class="nav-link" href="index.php?action=cartegory&query=add">CARTEGORY</a></li>
                 <li class="nav-item"> <a class="nav-link" href="index.php?action=product&query=add">PRODUCT</a></li>
                 <li class="nav-item"> <a class="nav-link" href="index.php?action=order">ORDER</a></a></li>
+                <li class="nav-item"> <a class="nav-link" href="index.php?action=contact">CONTACT</a></a></li>
+                <li class="nav-item"> <a class="nav-link" href="index.php?action=comment">COMMENT</a></a></li>
               </ul>
             </div>
           </li>
@@ -424,6 +426,10 @@
                   include('main/product.php');
                 }elseif($tmp == 'order'){
                   include('main/order.php');
+                }elseif($tmp == 'contact'){
+                  include('main/contact.php');
+                }elseif($tmp == 'comment'){
+                  include('main/comment.php');
                 }
             ?>
          </div>
