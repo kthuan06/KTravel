@@ -71,8 +71,8 @@ if(isset($_GET['action']) && $_GET['action'] =='booknow' && isset($_SESSION['id_
             ?>
             <p class="font-bold text-2xl">Thông tin khách hàng</p>
             <div>
-                <form action="http://localhost/DACS2/index.php?main=payment" method="post" class="flex mb-10">
-                <div class="w-2/3">
+                <form action="http://localhost/DACS2/index.php?main=payment" method="post" class="flex flex-wrap mb-10">
+                <div class="lg:w-7/12 w-full">
                     
                     <div action="#" style="background-color: #F0F0F0;"class="mt-5 p-7 rounded-xl"  >
                         <div class="grid grid-cols-2">
@@ -91,7 +91,7 @@ if(isset($_GET['action']) && $_GET['action'] =='booknow' && isset($_SESSION['id_
                     </div>
                 </div>
 
-                <div class="w-1/3 ml-5 border border-solid p-5 rounded-xl"><p class="font-bold text-xl">Đơn hàng</p>
+                <div class="lg:w-4/12 w-full ml-auto border border-solid p-5 rounded-xl"><p class="font-bold text-xl">Đơn hàng</p>
                 <?php foreach( $_SESSION['cart'] as $key => $item ) {
                             $cost  = number_format($item['cost'],  0, ',','.');
                             $total = number_format($item['total'], 0, ',','.');
@@ -102,7 +102,7 @@ if(isset($_GET['action']) && $_GET['action'] =='booknow' && isset($_SESSION['id_
                         <div class="w-8/12">
                             <p class="font-bold text-sm"><?php echo $item['name'] ?></p>
                             <p class="font-bold text-sm"><span class="font-light">Giá :</span>
-                                <?php echo $item['total'] ?>đ</p>
+                                <?php echo $cost ?>đ</p>
                         </div>
                     </div>
                     <p></p>
@@ -121,7 +121,7 @@ if(isset($_GET['action']) && $_GET['action'] =='booknow' && isset($_SESSION['id_
                            Thanh toán khi nhận hàng
                         </button></a>
                         <a href=""><button type="submit" name="on" class="w-56" style="background-color: black; color: white; border-radius: 10px;  height: 30px; font-weight: bold; ">
-                            Chuyển khoản VieQR
+                            Chuyển khoản VNPAY
                         </button></a>
                         </div>
                         
@@ -165,8 +165,8 @@ if(isset($_GET['action']) && $_GET['action'] =='booknow' && isset($_SESSION['id_
             ?>
             <p class="font-bold text-2xl">Thông tin khách hàng</p>
             <div>
-                <form action="http://localhost/DACS2/index.php?main=payment" method="post" class="flex mb-10">
-                <div class="w-2/3">
+                <form action="http://localhost/DACS2/index.php?main=payment" method="post" class="flex flex-wrap mb-10">
+                <div class="lg:w-7/12 w-full">
                     
                     <div action="#" style="background-color: #F0F0F0;"class="mt-5 p-7 rounded-xl"  >
                         <div class="grid grid-cols-2">
@@ -185,7 +185,7 @@ if(isset($_GET['action']) && $_GET['action'] =='booknow' && isset($_SESSION['id_
                     </div>
                 </div>
 
-                <div class="w-1/3 ml-5 border border-solid p-5 rounded-xl"><p class="font-bold text-xl">Đơn hàng</p>
+                <div class="lg:w-4/12 w-full ml-auto border border-solid p-5 rounded-xl"><p class="font-bold text-xl">Đơn hàng</p>
                 <?php foreach( $_SESSION['cart'] as $key => $item ) {
                             $cost  = number_format($item['cost'],  0, ',','.');
                             $total = number_format($item['total'], 0, ',','.');
@@ -196,7 +196,7 @@ if(isset($_GET['action']) && $_GET['action'] =='booknow' && isset($_SESSION['id_
                         <div class="w-8/12">
                             <p class="font-bold text-sm"><?php echo $item['name'] ?></p>
                             <p class="font-bold text-sm"><span class="font-light">Giá :</span>
-                                <?php echo $item['total'] ?>đ</p>
+                                <?php echo $cost ?>đ</p>
                         </div>
                     </div>
                     <p></p>
@@ -215,7 +215,7 @@ if(isset($_GET['action']) && $_GET['action'] =='booknow' && isset($_SESSION['id_
                            Thanh toán khi nhận hàng
                         </button></a>
                         <a href=""><button type="submit" name="on" class="w-56" style="background-color: black; color: white; border-radius: 10px;  height: 30px; font-weight: bold; ">
-                            Chuyển khoản VieQR
+                            Chuyển khoản VNPAY
                         </button></a>
                         </div>
                         

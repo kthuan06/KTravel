@@ -1,6 +1,8 @@
 
 <?php
-    session_start();
+$lifetime = 60 * 60 * 24 * 14;
+session_set_cookie_params($lifetime, '/');
+session_start();
     if(!isset($_SESSION['Login'])){
         header("Location:login.php");
     }
@@ -31,7 +33,7 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="assets/images/favicon.png" />
+    <link rel="shortcut icon" href="../images/logo1.png" />
   </head>
   <body>
     <div class="container-scroller">

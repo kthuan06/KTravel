@@ -1,6 +1,6 @@
-<div class="header  h-56 w-11/12 my-10 mx-auto ">
+<div class="header  rounded-xl  h-56 w-11/12 my-10 mx-auto ">
             <a href="index.php">
-            <img src="./images/banner.png" alt="" class="w-full h-full"></a>
+            <img src="./images/banner.png" alt="" class="w-full h-full  rounded-xl"></a>
         </div>
         <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
 
@@ -69,10 +69,10 @@
            
             <div class="flex">
             
-            <a href="" class="w-1/5 mx-auto"><img  src="https://media.travel.com.vn/Advertisings/bn_230728_HanhHuongAnDoedit.webp" alt=""></a>
-            <a href="" class="w-1/5 mx-auto"><img  src="https://media.travel.com.vn/Advertisings/bn_230818_BANNER_HANQUOC_1011.webp" alt=""></a>
-            <a href="" class="w-1/5 mx-auto"><img  src="https://media.travel.com.vn/Advertisings/bn_230911_BannerUuDaiNhom_BannerUudai%20412-309px.webp" alt=""></a>
-            <a href="" class="w-1/5 mx-auto"><img  src="https://media.travel.com.vn/Advertisings/bn_230911_BannerLuotSongHan%20412x309px-01.webp" alt=""></div></a>
+            <a href="" class="w-1/5 mx-auto"><img class="rounded-xl" src="https://media.travel.com.vn/Advertisings/bn_230728_HanhHuongAnDoedit.webp" alt=""></a>
+            <a href="" class="w-1/5 mx-auto"><img class="rounded-xl" src="https://media.travel.com.vn/Advertisings/bn_230818_BANNER_HANQUOC_1011.webp" alt=""></a>
+            <a href="" class="w-1/5 mx-auto"><img class="rounded-xl" src="https://media.travel.com.vn/Advertisings/bn_230911_BannerUuDaiNhom_BannerUudai%20412-309px.webp" alt=""></a>
+            <a href="" class="w-1/5 mx-auto"><img class="rounded-xl" src="https://media.travel.com.vn/Advertisings/bn_230911_BannerLuotSongHan%20412x309px-01.webp" alt=""></div></a>
         </div>
 
         <p class="text-4xl font-bold text-blue-700 ml-5 my-5">Khám phá sản phẩm</p>

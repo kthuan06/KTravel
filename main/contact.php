@@ -4,25 +4,9 @@ include('admin/config/config.php');
 if(isset($_POST['send'])){
     // Chuẩn bị câu lệnh SQL với Prepared Statements
     $sql = "INSERT INTO tbl_contact(contact_name, contact_email, contact_phonenumber, contact_mess) 
-            VALUES (?, ?, ?, ?)";
+            VALUES ('".$_POST['name']."', '".$_POST['email']."', '".$_POST['phone']."', '".$_POST['mess']."')";
 
-    // Chuẩn bị truy vấn với Prepared Statements
-    $stmt = $mysqli->prepare($sql);
-
-    // Kiểm tra nếu truy vấn được chuẩn bị thành công
-    if ($stmt) {
-        // Gán các giá trị vào truy vấn với Prepared Statements
-        $stmt->bind_param("ssss", $_POST['name'], $_POST['email'], $_POST['phone'], $_POST['mess']);
-
-        // Thực thi truy vấn
-        
-
-        // Đóng prepared statement
-        $stmt->close();
-    } else {
-        echo "Lỗi chuẩn bị truy vấn: " . $mysqli->error;
-    }
-    
+   $sql_query = mysqli_query($mysqli, $sql);
 }
 ?>
 

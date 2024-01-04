@@ -3,9 +3,9 @@
         include('../admin/config/config.php');
         use PHPMailer\PHPMailer\PHPMailer;
 
-          require "../PHPMailer/src/PHPMailer.php";  //nhúng thư viện vào để dùng, sửa lại đường dẫn cho đúng nếu bạn lưu vào chỗ khác
-          require "../PHPMailer/src/SMTP.php"; //nhúng thư viện vào để dùng
-          require '../PHPMailer/src/Exception.php'; //nhúng thư viện vào để dùng
+          require "../PHPMailer/src/PHPMailer.php"; 
+          require "../PHPMailer/src/SMTP.php"; 
+          require '../PHPMailer/src/Exception.php'; 
   function get_subtotal() {
             $subtotal = 0;
             foreach ($_SESSION['cart'] as $item) {
@@ -16,7 +16,7 @@
         }
         
     $insert_cart = " INSERT INTO tbl_cart(id_user, code_cart, cart_status, cart_payments, cart_price, cart_name, cart_email, cart_phone, cart_address, cart_note) 
-    VALUES  ('".$_SESSION['id_user']."', '".$_SESSION['cart_code']."', 1, 0, '".get_subtotal()."', '".$_SESSION['Register']."', 'thuankim2214@gmail.com', '0915300091', 'Đà Nẵng', 'note') ";
+    VALUES  ('".$_SESSION['id_user']."', '".$_SESSION['cart_code']."', 1, 0, '".get_subtotal()."', '".$_SESSION['Register']."', 'thuankim2214@gmail.com', '0915300091', 'Da Nang', 'note') ";
     $query = mysqli_query($mysqli, $insert_cart);
 
     $sql = mysqli_query($mysqli, "DELETE FROM tbl_session_cart WHERE session_user = '".$_SESSION['id_user']."' ");

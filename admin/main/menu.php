@@ -90,7 +90,7 @@ include('config/config.php');
 
                             
                             ?>
-                          <tr>
+                          <tr> 
                             <td> <?php echo $row['list_id'] ?> </td>
                             <td> <?php echo $row['list_name'] ?> </td>
                             <td> <?php echo $row['list_address'] ?> </td>

@@ -32,9 +32,10 @@
         move_uploaded_file($img_tmp4, 'uploads/'.$img4);
         header('Location:../index.php?action=product&query=add');
     }elseif(isset($_POST['edit'])){
+      $price = $_POST['price'] * 1000;
         $sql_edit = mysqli_query($mysqli, "UPDATE tbl_product SET 
         product_name = '".$_POST['name']."' , product_type ='".$_POST['type']."', product_location ='".$_POST['location']."',
-        product_price ='".$_POST['price']."', product_detail ='".$_POST['detail']."' WHERE product_code = '$_GET[id]' ");
+        product_price ='".$price."', product_detail ='".$_POST['detail']."' WHERE product_code = '$_GET[id]' ");
         header('Location:../index.php?action=product&query=add');
     }elseif(isset($_POST['editimg'])){
         $img = $_FILES['img']['name'];

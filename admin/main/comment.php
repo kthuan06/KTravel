@@ -2,7 +2,10 @@
     if(isset($_POST['reply_btn'])){
         $sql = mysqli_query($mysqli, "INSERT INTO tbl_reply(id_cmt, comment) VALUES ('".$_POST['id_cmt']."','".$_POST['reply']."')" );
     }
-
+    if(isset($_GET['query']) && $_GET['query'] == 'delete'){
+      $id_cmt = $_GET['id'];
+      $sql_delete = mysqli_query($mysqli, "DELETE FROM tbl_comment WHERE id = '".$_GET['id']."' ");
+    }
 ?>
 
 <div class="">
@@ -44,7 +47,7 @@
                                 <input name="id_cmt" type="text" style="display: none;" value="<?php echo $row['id'] ?>">    
                                                       
                             <button type="submit" name="reply_btn" class="btn btn-success ">REPLY</button> /
-                             <button class="btn btn-danger"><a style="text-decoration: none; color: white;" href="">DELETE</a></button> </td>
+                             <button class="btn btn-danger"><a style="text-decoration: none; color: white;" href="index.php?action=comment&query=delete&id=<?php echo $row['id'] ?>">DELETE</a></button> </td>
                             </form>  
                           </tr>
                            
